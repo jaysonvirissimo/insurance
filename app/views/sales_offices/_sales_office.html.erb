@@ -1,0 +1,30 @@
+<div id="<%= dom_id sales_office %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">State:</strong>
+    <%= sales_office.state %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Leads in need of a sales person:</strong>
+    <ul> 
+      <% sales_office.leads.unassigned.each do |lead| %>
+        <li><%= link_to(lead.name, edit_lead_url(lead)) %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Leads already assigned to sales people:</strong>
+    <ul> 
+      <% sales_office.leads.assigned.each do |lead| %>
+        <li><%= lead.name %> is assigned to <%= lead.sales_person.name %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this sales office", sales_office, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this sales office', edit_sales_office_path(sales_office), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

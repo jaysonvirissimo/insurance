@@ -12,6 +12,21 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul class="flex">
+          <li class="mr-6">
+            <%= link_to("New Lead", new_lead_url, class: "text-blue-500 hover:text-blue-800") %>
+          </li>
+          <li class="mr-6">
+            <%= link_to("Sales Offices", sales_offices_url, class: "text-blue-500 hover:text-blue-800") %>
+          </li>
+          <li class="mr-6">
+            <%= link_to("Sales People", sales_people_url, class: "text-blue-500 hover:text-blue-800") %>
+          </li> 
+        </ul> 
+      </nav>
+    </header>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
